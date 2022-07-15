@@ -12,9 +12,10 @@
                             {{ product.tags }}
                             </span>
                         {% endunless %}
-
-                        <img class="card__img" src="{{ product.featured_image | img_url: 'large' | format: 'jpg' }}"
-                             alt="{{ block.settings.slide_heading }}">
+                        <a class="card__link" href="{{ product.url }}">
+                            <img class="card__img" src="{{ product.featured_image | img_url: 'large' | format: 'jpg' }}"
+                                 alt="{{ block.settings.slide_heading }}">
+                        </a>
                         <a class="card__link" href="{{ product.url }}">
                             <h3 class="card__title">{{ product.title }}  </h3>
                         </a>
@@ -22,7 +23,7 @@
                         <p class="card__description">
                             {{ product.description | truncatewords: 13, '...' }}
                         </p>
-                        <div class="card-summary"> <span class="card__price">
+                        <div class="card__summ"><span class="card__price">
                 {{ product.price | money }}
                         </span>
                             <span class="card__price-compare">
@@ -31,14 +32,14 @@
 
                         <form method="post" action="/cart/add">
                             <input type="hidden" name="id" value="{{ product.variants.first.id }}"/>
-                            <input type="submit" value="Add to cart" class="btn"/>
+                            <input type="submit" value="Add to bag" class="btn"/>
                         </form>
                     </div>
                 </div>
             {% endfor %}
         </div>
-        <div class="swiper-button-prev"> </div>
-        <div class="swiper-button-next"> </div>
+        <div class="swiper-button-prev"><span></span></div>
+        <div class="swiper-button-next"><span></span></div>
 
     </div>
 </section>
