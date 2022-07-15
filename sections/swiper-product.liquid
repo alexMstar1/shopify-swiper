@@ -31,7 +31,7 @@
                         </span></div>
 
                         <form method="post" action="/cart/add">
-                            <input type="hidden" name="id" value="{{ product.variants.first.id }}"/>
+                            <input type="hidden" name="id" value="{{ product_selected_or_first_available_variant.id }}"/>
                             <input type="submit" value="Add to bag" class="btn"/>
                         </form>
                     </div>
